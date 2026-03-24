@@ -85,6 +85,16 @@ export default function Home() {
             </div>
           </div>
         </section>
+        {/* Hero Images Section /w  tabs */}
+        <section className="boder-t bg-primary py-16">
+          <div>
+            <div>
+              <Button>Organize Applications</Button>
+              <Button>Get Hired</Button>
+              <Button>Manage Boards</Button>
+            </div>
+          </div>
+        </section>
       </main>
     </div>
   );

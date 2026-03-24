@@ -1,4 +1,6 @@
-import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -66,13 +68,20 @@ export default function Home() {
         {/* Hero Section */}
         <section className="container mx-auto px-4 py-32">
           <div className="mx-auto max-w-4xl text-center">
-            <h1 className="text-black mb-6 text-6xl font-bold"> Job App Tracker</h1>
+            <h1 className="text-black mb-6 text-6xl font-bold">
+              {" "}
+              Job App Tracker
+            </h1>
             <p className="text-gray-700 mb-10 text-xl">
               Capture, organize, and manage your job search in one place
             </p>
             <div className="flex flex-col items-center gap-4">
-              <button type="button" className="">Start for free</button>
-              <p className="">Free forever. No payment required</p>
+              <Link href="/sign-up">
+                <Button size={"lg"} className="h-10 px-6 text-lg font-medium">
+                  Start for free <ArrowRight className="ml-2" />
+                </Button>
+              </Link>
+              <p className="text-gray-500">Free forever. No payment required</p>
             </div>
           </div>
         </section>

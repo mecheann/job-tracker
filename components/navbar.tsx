@@ -4,7 +4,7 @@ import { Button } from "./ui/button";
 
 const Navbar = () => {
   return (
-    <nav className="border-b border-secondary/50 bg-primary dark:bg-foreground-dark">
+    <nav className="border-b border-accent bg-secondary dark:bg-foreground-dark">
       <div className="container mx-auto flex h-16 items-center px-4 justify-between">
         <Link
           href="/"
@@ -16,13 +16,13 @@ const Navbar = () => {
           <Link href="/sign-in">
             <Button
               variant="ghost"
-              className="text-foreground hover:text-card-foreground hover:bg-secondary/90"
+              className="text-foreground hover:text-card-foreground hover:bg-primary/90"
             >
               Log In
             </Button>
           </Link>
           <Link href="/sign-up">
-            <Button className="bg-primary hover:text-card-foreground hover:bg-secondary/90">
+            <Button className="bg-primary hover:text-card-foreground hover:bg-primary/90">
               Start for free
             </Button>
           </Link>

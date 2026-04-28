@@ -17,7 +17,7 @@ const Home = () => {
               Capture, organize, and manage your job search in one place
             </p>
             <div className="flex flex-col items-center gap-4">
-              <Link href="/sign-up">
+              <Link href="/register">
                 <Button size={"lg"} className="h-10 px-6 text-lg font-medium">
                   Start for free <ArrowRight className="ml-2" />
                 </Button>

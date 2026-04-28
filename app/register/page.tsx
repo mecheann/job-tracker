@@ -11,12 +11,12 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Link from "next/link";
 
-const SignUp = () => {
+const Register = () => {
   return (
     <div className="flex min-h-[calc(100vh-4rem)]  items-center  justify-center bg-white p-4">
       <Card className="w-full max-w-md border border-accent shadow-lg">
         <CardHeader className="space-y-1">
-          <CardTitle className="text-center text-2xl font-bold">Sign Up</CardTitle>
+          <CardTitle className="text-center text-2xl font-bold">Register</CardTitle>
           <CardDescription className="text-muted-primary">
             Create a new account to get started with tracking your job
             applications.
@@ -67,12 +67,12 @@ const SignUp = () => {
               className="w-full bg-primary hover:bg-primary/70"
               type="submit"
             >
-              Sign Up
+              Register
             </Button>
             <p className="text-center text-sm text-muted-primary">
               Already have an account?{" "}
               <Link
-                href="/sign-in"
+                href="/log-in"
                 className="font-medium text-primary hover:underline"
               >
                 Log in
@@ -85,4 +85,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default Register;

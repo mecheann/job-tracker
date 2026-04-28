@@ -13,7 +13,7 @@ const Navbar = () => {
           <Briefcase /> Job App Tracker
         </Link>
         <div className="flex items-center gap-3">
-          <Link href="/sign-in">
+          <Link href="/log-in">
             <Button
               variant="ghost"
               className="text-foreground hover:text-card-foreground hover:bg-primary/90"
@@ -21,7 +21,7 @@ const Navbar = () => {
               Log In
             </Button>
           </Link>
-          <Link href="/sign-up">
+          <Link href="/register">
             <Button className="bg-primary hover:text-card-foreground hover:bg-primary/90">
               Start for free
             </Button>

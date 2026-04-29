@@ -22,8 +22,8 @@ export const ColumnSchema = new Schema<IColumn>(
     },
     order: { type: Number, required: true, default: 0 },
     jobApplications: [{ type: Schema.Types.ObjectId, ref: "JobApplication" }],
-    createdBy: { type: String, required: true },
-    updatedBy: { type: String, required: true },
+    createdBy: { type: String, default: "system" },
+    updatedBy: { type: String, default: "system" },
   },
   {
     timestamps: true,

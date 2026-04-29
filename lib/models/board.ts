@@ -17,12 +17,13 @@ export const BoardSchema = new Schema<IBoard>(
     userId: { type: String, required: true, index: true },
     //     description?: string;
     columns: [{ type: Schema.Types.ObjectId, ref: "Column" }],
-    createdBy: { type: String, required: true },
-    updatedBy: { type: String, required: true },
+    createdBy: { type: String, default: "system" },
+    updatedBy: { type: String, default: "system" },
   },
   {
     timestamps: true,
   },
 );
 
-export default mongoose.models.Board || mongoose.model<IBoard>("Board", BoardSchema);
+export default mongoose.models.Board ||
+  mongoose.model<IBoard>("Board", BoardSchema);

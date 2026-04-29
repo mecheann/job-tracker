@@ -50,7 +50,7 @@ const Navbar = () => {
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end" className="bg-primary-foreground w-auto">
                   <DropdownMenuGroup>
-                    <DropdownMenuLabel className="font-normal text-foreground">
+                    <DropdownMenuLabel className="font-normal text-accent-foreground">
                       <div className="flex flex-col space-y-1">
                         <p className="text-sm font-medium leading-none">
                           {session.user.name}

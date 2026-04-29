@@ -13,27 +13,34 @@ import { Label } from "@/components/ui/label";
 import Link from "next/link";
 import { useState } from "react";
 import { signUp } from "@/lib/auth/auth-client";
+import { useRouter } from "next/navigation";
 
 const Register = () => {
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+
   const [error, setError] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const router = useRouter();
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
     setIsLoading(true);
-    // Simulate API call
-    if (!name || !email || !password) {
-      setError("All fields are required");
-      setIsLoading(false);
-      return;
-    }
 
     try {
-      await signUp.email({ name, email, password });
+      const result = await signUp.email({ name, email, password });
+      if (result.error) {
+        setError(
+          result.error.message || "Registration failed. Please try again.",
+        );
+      } else {
+        // Registration successful, you can redirect or show a success message
+        //console.log("Registration successful:", result);
+        router.push("/dashboard"); // Redirect to dashboard or home page after successful registration
+      }
     } catch (err) {
       setError("An error occurred during registration. Please try again.");
     } finally {
@@ -55,7 +62,7 @@ const Register = () => {
         <form onSubmit={handleSubmit} className="space-y-4">
           <CardContent className="space-y-4">
             <div className="space-y-2">
-              {error && <p className="text-sm text-danger">{error}</p>}
+              {error && <p className="text-sm text-red-600">{error}</p>}
             </div>
             <div className="space-y-2">
               <Label className="text-foreground" htmlFor="name">
@@ -105,8 +112,9 @@ const Register = () => {
             <Button
               className="w-full bg-primary hover:bg-primary/70"
               type="submit"
+              disabled={isLoading}
             >
-              Register
+              {isLoading ? "Creating an account..." : "Register"}
             </Button>
             <p className="text-center text-sm text-muted-primary">
               Already have an account?{" "}

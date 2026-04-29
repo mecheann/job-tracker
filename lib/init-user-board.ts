@@ -1,7 +1,5 @@
-import { create } from "domain";
 import dbConnect from "./db";
 import { Board, Column } from "./models";
-import { createDecipheriv } from "crypto";
 
 const DEFAULT_COLUMNS = [
   { name: "Wishlist", order: 0 },
@@ -11,7 +9,7 @@ const DEFAULT_COLUMNS = [
   { name: "Rejected", order: 4 },
 ];
 
-const DEFAULT_BOARD_NAME = "Default Board";
+export const DEFAULT_BOARD_NAME = "Default Board";
 export const initUserBoard = async (userId: string) => {
   //Create a default board for the user
   try {

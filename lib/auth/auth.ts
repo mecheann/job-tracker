@@ -5,7 +5,14 @@ import { redirect } from "next/navigation";
 import { headers } from "next/headers";
 import { initUserBoard } from "../init-user-board";
 
-const client = new MongoClient(process.env.MONGODB_URI!);
+// const client = new MongoClient(process.env.MONGODB_URI!);
+const globalForMongo = global as unknown as { _mongoClient?: MongoClient };
+
+const client = globalForMongo._mongoClient || new MongoClient(process.env.MONGODB_URI!);
+
+if (process.env.NODE_ENV !== "production") {
+  globalForMongo._mongoClient = client;
+}
 const db = client.db();
 
 export const auth = betterAuth({
@@ -19,15 +26,10 @@ export const auth = betterAuth({
     user: {
       create: {
         after: async (user: User) => {
-          // Initialize user board after successful registration
-          // try {
           if (user.id) {
             const result = await initUserBoard(user.id);
             console.log("User board initialized:", result);
           }
-          // } catch (error) {
-          //   console.error("Error initializing user board:", error);
-          // }
         },
       },
     },

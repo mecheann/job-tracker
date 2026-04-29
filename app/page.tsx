@@ -17,7 +17,7 @@ const Home = () => {
               Capture, organize, and manage your job search in one place
             </p>
             <div className="flex flex-col items-center gap-4">
-              <Link href="/sign-up">
+              <Link href="/register">
                 <Button size={"lg"} className="h-10 px-6 text-lg font-medium">
                   Start for free <ArrowRight className="ml-2" />
                 </Button>
@@ -35,7 +35,7 @@ const Home = () => {
             <div className="grid gap-12 md:grid-cols-3">
               <div className="flex flex-col">
                 <div className="mb-4 inline-flex h-12 w-12 items-center">
-                  <Briefcase className="h-6 w-6 text-accent" />
+                  <Briefcase className="h-6 w-6 text-foreground" />
                 </div>
                 <h3 className="mb-3 text-2xl font-semibold text-black">
                   Organize Applications
@@ -46,8 +46,8 @@ const Home = () => {
                 </p>
               </div>
               <div className="flex flex-col">
-                <div className="mb-4 inline-flex h-12 w-12 items-center">
-                  <TrendingUp className="h-6 w-6 text-accent" />
+                <div className="mb-4  inline-flex h-12 w-12 items-center">
+                  <TrendingUp className="h-6 w-6 text-foreground" />
                 </div>
                 <h3 className="mb-3 text-2xl font-semibold text-black">
                   Track Progress
@@ -59,7 +59,7 @@ const Home = () => {
               </div>
               <div className="flex flex-col">
                 <div className="mb-4 inline-flex h-12 w-12 items-center">
-                  <CheckCircle2 className="h-6 w-6 text-accent" />
+                  <CheckCircle2 className="h-6 w-6 text-foreground" />
                 </div>
                 <h3 className="mb-3 text-2xl font-semibold text-black">
                   Stay Organized

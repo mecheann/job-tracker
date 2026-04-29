@@ -39,7 +39,7 @@ const Register = () => {
       } else {
         // Registration successful, you can redirect or show a success message
         //console.log("Registration successful:", result);
-        router.push("/dashboard"); // Redirect to dashboard or home page after successful registration
+        router.push("/log-in"); // Redirect to log-in page after successful registration
       }
     } catch (err) {
       setError("An error occurred during registration. Please try again.");
@@ -61,9 +61,11 @@ const Register = () => {
         </CardHeader>
         <form onSubmit={handleSubmit} className="space-y-4">
           <CardContent className="space-y-4">
-            <div className="space-y-2">
-              {error && <p className="text-sm text-red-600">{error}</p>}
-            </div>
+             {error && (
+              <div className="rounded-md bg-destructive/15 p-3 text-sm text-destructive">
+                {error}
+              </div>
+            )}
             <div className="space-y-2">
               <Label className="text-foreground" htmlFor="name">
                 Name

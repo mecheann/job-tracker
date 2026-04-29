@@ -1,3 +1,4 @@
+import KanbanBoard from "@/components/kanban-board";
 import { getSession } from "@/lib/auth/auth";
 import dbConnect from "@/lib/db";
 import { DEFAULT_BOARD_NAME } from "@/lib/init-user-board";
@@ -16,14 +17,22 @@ const Dashboard = async () => {
   const board = await Board.findOne({
     userId: session.user.id,
     name: DEFAULT_BOARD_NAME,
-  }).lean();
+  }).populate("columns");
 
-  console.log(board);
 
   return (
     <div>
-      <div className="min-h-screen flex items-start justify-start p-8">
-        <h1 className="text-3xl font-bold">{board?.name}</h1>
+      <div className="justify-center items-center p-8">
+        <div className="flex flex-col items-start justify-start p-8">
+          <h1 className="text-3xl font-bold">{board.name}</h1>
+          <p className="text-muted-foreground">
+            Track your job applications in one place.
+          </p>
+        </div>
+        <KanbanBoard
+          board={JSON.parse(JSON.stringify(board))}
+          userId={session.user.id}
+        />
       </div>
     </div>
   );

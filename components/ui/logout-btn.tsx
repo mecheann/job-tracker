@@ -13,7 +13,7 @@ const LogOutButton = () => {
       alert("Logout failed. Please try again.");
     }
   };
-  return <DropdownMenuItem onClick={handleLogout}>Logout</DropdownMenuItem>;
+  return <DropdownMenuItem className="text-accent-foreground" onClick={handleLogout}>Logout</DropdownMenuItem>;
 };
 
 export default LogOutButton;

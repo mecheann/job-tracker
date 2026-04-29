@@ -47,8 +47,8 @@ export const JobApplicationSchema = new Schema<IJobApplication>(
     appliedDate: { type: Date },
     tags: [{ type: String }],
     description: { type: String },
-    createdBy: { type: String, required: true },
-    updatedBy: { type: String, required: true },
+    createdBy: { type: String, default: "system" },
+    updatedBy: { type: String, default: "system" },
   },
   {
     timestamps: true,
